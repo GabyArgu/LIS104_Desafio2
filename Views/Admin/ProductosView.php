@@ -12,7 +12,7 @@
 
                 <div class="col-4 d-flex align-items-center">
                     <input type="search" class="form-control" placeholder="Buscar producto" name="search" value="<?php echo isset($search) ? $search : ''; ?>">
-                    <button class="btn btn-primary" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    <button class="btn btn-primary borderN" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
                 </div>
             </div>
         </form>
@@ -49,7 +49,7 @@
                             <td><?php echo $producto['categoria'] ?></td>
                             <td><?php echo $producto['precio'] ?></td>
                             <td><?php echo $producto['existencias'] ?></td>
-                            <td class="text-center"><img src="/Static/Img/Productos/<?php echo $producto['imagen'] ?>" width="100" alt="Producto"></td>
+                            <td class="text-center"><img src="/LIS104_Desafio2/Static/Img/Productos/<?php echo $producto['imagen'] ?>" width="100" alt="Producto"></td>
                             <td class="text-center align-middle">
                                 <div class="btn-group">
                                     <a href="productos/editar/<?php echo $producto['id'] ?>" class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i></a>

@@ -41,7 +41,7 @@ class AdminVentasController extends Controller
         $ClienteModel = new ClientesModel();
         $cliente = $ClienteModel->getOne($venta['cliente_id']);
         if (!$this->model->generarPDFComprobante($productos, $venta['total'], $cliente['nombre'])) {
-            header("Location: $this->base/historial");
+            header("Location: /LIS104_Desafio2/$this->base/historial");
         }
     }
 }

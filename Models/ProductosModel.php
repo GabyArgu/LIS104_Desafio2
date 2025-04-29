@@ -14,6 +14,11 @@ class ProductosModel extends Model
         return $this->get_rows($query, $parametros);
     }
 
+    public function getUltimoProducto() {
+        $query = "SELECT codigo FROM productos ORDER BY id DESC LIMIT 1";
+        return $this->get_row($query);
+    }
+
     // Insertar un producto
     public function insert($datos)
     {

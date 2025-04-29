@@ -19,7 +19,7 @@ class PublicVentasController extends Controller
 
     function index()
     {
-        header("Location: $this->base/carrito");
+        header("Location: /LIS104_Desafio2/$this->base/carrito");
     }
 
     function carrito()
@@ -121,7 +121,7 @@ class PublicVentasController extends Controller
     {
         $this->verificarSesionPublic(true);
         if($this->model->getVenta($params[0])['cliente_id'] != $_SESSION['cliente_id']){ 
-            header("Location: $this->base/historial");
+            header("Location: /LIS104_Desafio2/$this->base/historial");
         }else{
             $data = [];
             $data['detalle'] = $this->model->getDetallesCompra($params[0]);
@@ -134,11 +134,11 @@ class PublicVentasController extends Controller
         $this->verificarSesionPublic(true);
         $venta = $this->model->getVenta($params[0]);
         if($venta['cliente_id'] != $_SESSION['cliente_id']){ 
-            header("Location: $this->base/historial");
+            header("Location: /LIS104_Desafio2/$this->base/historial");
         }else{
             $productos = $this->model->getDetallesCompra($params[0]);
             if(!$this->model->generarPDFComprobante($productos, $venta['total'], $_SESSION['cliente_nombre'])){
-                header("Location: $this->base/historial");
+                header("Location: /LIS104_Desafio2/$this->base/historial");
             }
         }
     }

@@ -16,7 +16,7 @@ class PublicClientesController extends Controller
 
     function index()
     {
-        header("Location: /public/productos");
+        header("Location: /LIS104_Desafio2/public/productos");
     }
 
     function login()
@@ -42,7 +42,7 @@ class PublicClientesController extends Controller
                         // Login exitoso
                         $_SESSION['cliente_id'] = $user["id"];
                         $_SESSION['cliente_nombre'] = $user["nombre"];
-                        header("Location: /");
+                        header("Location: /LIS104_Desafio2/");
                         exit;
                     }
                 }
@@ -59,7 +59,7 @@ class PublicClientesController extends Controller
     function logout()
     {
         session_destroy();
-        header("Location: /");
+        header("Location: /LIS104_Desafio2/");
         exit;
     }
 

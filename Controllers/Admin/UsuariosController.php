@@ -28,7 +28,7 @@ class AdminUsuariosController extends Controller
     {
         if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             if (isset($_SESSION['usuario_id'])) {
-                header("Location: /admin/productos");
+                header("Location: /LIS104_Desafio2/admin/productos");
                 exit;
             }
             $this->render("Admin/LoginView.php");
@@ -50,7 +50,7 @@ class AdminUsuariosController extends Controller
                         // Login exitoso
                         $_SESSION['usuario_id'] = $user["id"];
                         $_SESSION['usuario_rol'] = $user["rol"];
-                        header("Location: /admin/productos");
+                        header("Location: /LIS104_Desafio2/admin/productos");
                         exit;
                     }
                 }
@@ -67,7 +67,7 @@ class AdminUsuariosController extends Controller
     function logout()
     {
         session_destroy();
-        header("Location: /admin");
+        header("Location: /LIS104_Desafio2/admin");
         exit;
     }
 
@@ -102,7 +102,7 @@ class AdminUsuariosController extends Controller
                 $data['usuario'] = $this->model->getOne($params[0]);
                 $this->render("Admin/UsuariosFormView.php", $data);
             } else {
-                header("Location: /$this->base");
+                header("Location: /LIS104_Desafio2/$this->base");
             }
         } else if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $this->validarDatos('editar');

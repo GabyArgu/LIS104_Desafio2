@@ -10,8 +10,12 @@
             <input type="hidden" name="id" value="<?php echo isset($producto) ? $producto['id'] : ""; ?>">
 
             <div class="form-group col-md-6">
-                <label class="control-label" for="codigo">Codigo:</label>
-                <input type="text" class="form-control" name="codigo" value="<?php echo isset($producto) ? $producto['codigo'] : ""; ?>">
+                <label class="control-label" for="codigo">Código:</label>
+                <?php if (isset($producto)): ?>
+                    <input type="text" class="form-control" name="codigo" value="<?= $producto['codigo'] ?>" readonly>
+                <?php else: ?>
+                    <input type="text" class="form-control" name="codigo" value="<?= $codigo_auto ?>" readonly>
+                <?php endif; ?>
             </div>
             <div class="form-group col-md-6">
                 <label class="control-label" for="nombre">Nombre:</label>

@@ -36,7 +36,7 @@
                                 <p class="m-0">Disponibles <?= $producto['existencias'] ?></p>
                             </div>
                             <div class="d-flex align-items-center">
-                                <img src="/Static/Img/Productos/<?php echo $producto['imagen'] ?>" alt="Coupon Image" class="rounded" style="width: 100px; object-fit: cover;">
+                                <img src="/LIS104_Desafio2/Static/Img/Productos/<?php echo $producto['imagen'] ?>" alt="Coupon Image" class="rounded" style="width: 100px; object-fit: cover;">
                             </div>
                         </div>
                     <?php endforeach; ?>
@@ -105,7 +105,7 @@
 
     <?php include_once 'Toast.php'; ?>
 
-    <script src="/Static/Js/tarjeta.js"></script>
+    <script src="/LIS104_Desafio2/Static/Js/tarjeta.js"></script>
 </body>
 
 </html>

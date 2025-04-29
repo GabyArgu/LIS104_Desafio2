@@ -20,7 +20,7 @@ abstract class Controller
     public function verificarSesionAdmin($rol)
     {
         if (!isset($_SESSION['usuario_id']) || (isset($rol) && $_SESSION['usuario_rol'] != $rol)) {
-            header("Location: /admin/");
+            header("Location: /LIS104_Desafio2/admin/");
             exit;
         };
     }
@@ -28,7 +28,7 @@ abstract class Controller
     public function verificarSesionPublic($mustBeLoged = true)
     {
         if (($mustBeLoged && !isset($_SESSION['cliente_id'])) || (!$mustBeLoged && isset($_SESSION['cliente_id']))) {
-            header("Location: /");
+            header("Location: /LIS104_Desafio2/");
             exit;
         };
     }
@@ -39,7 +39,7 @@ abstract class Controller
             "status" => $result,
             "mensaje" => $message
         ];
-        header("Location: /$location");
+        header("Location: /LIS104_Desafio2/$location");
         exit;
     }
 }

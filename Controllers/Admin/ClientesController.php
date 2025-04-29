@@ -33,7 +33,7 @@ class AdminClientesController extends Controller
                 $data['cliente'] = $this->model->getOne($params[0]);
                 $this->render("Admin/ClientesFormView.php", $data);
             } else {
-                header("Location: /$this->base");
+                header("Location: /LIS104_Desafio2/$this->base");
             }
         } else if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $this->validarDatos('editar');

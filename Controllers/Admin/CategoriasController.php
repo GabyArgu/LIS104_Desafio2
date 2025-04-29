@@ -53,7 +53,7 @@ class AdminCategoriasController extends Controller
                 $data['categoria'] = $this->model->getOne($params[0]);
                 $this->render('Admin/CategoriasFormView.php', $data);
             } else {
-                header("Location: /$this->base");
+                header("Location: /LIS104_Desafio2/$this->base");
             }
         } else if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $datos = [

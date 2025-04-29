@@ -13,12 +13,12 @@
         <div class="row align-items-center">
             <?php if ($vendedor_posicion == 'left') { ?>
                 <div class="col-md-2 text-center">
-                    <img src="/Static/Img/<?php echo $vendedor_imagen; ?>" alt="Vendedor" class="vendedor-img">
+                    <img src="/LIS104_Desafio2/Static/Img/<?php echo $vendedor_imagen; ?>" alt="Vendedor" class="vendedor-img">
                 </div>
             <?php } ?>
 
             <div class="col-md-5 text-center detalle-imagen">
-                <img src="/Static/Img/Productos/<?php echo $producto['imagen'] ?>" alt="Imagen del producto">
+                <img src="/LIS104_Desafio2/Static/Img/Productos/<?php echo $producto['imagen'] ?>" alt="Imagen del producto">
             </div>
             <div class="col-md-4 detalle-texto">
                 <h5>Descripción:</h5>
@@ -50,7 +50,7 @@
 
             <?php if ($vendedor_posicion == 'right') { ?>
                 <div class="col-md-2 text-center">
-                    <img src="/Static/Img/<?php echo $vendedor_imagen; ?>" alt="Vendedor" class="vendedor-img">
+                    <img src="/LIS104_Desafio2/Static/Img/<?php echo $vendedor_imagen; ?>" alt="Vendedor" class="vendedor-img">
                 </div>
             <?php } ?>
         </div>

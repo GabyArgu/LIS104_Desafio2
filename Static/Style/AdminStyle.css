@@ -6,6 +6,7 @@
 
 body {
     font-family: 'Poppins', sans-serif;
+    background-color: #E7F0FE;
 }
 
 .navbar{
@@ -14,4 +15,20 @@ body {
 
 .card{
     background-color: #2e79ea;
+}
+
+.btn-primary{
+    color: #fff          !important;
+    background-color: #173C74  !important;
+    border-color: #173C74   !important;
+}
+
+.borderN{
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+}
+
+.form-control, .btn-success{
+    border-top-right-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
 }

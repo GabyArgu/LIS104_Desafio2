@@ -5,7 +5,7 @@
 		<div class="row h-100 align-items-center">
 			<div class="col-md-6 d-flex flex-column align-items-center">
 				<h1 class="fw-bold">ADMIN</h1>
-				<img src="/Static/Img/login.svg" alt="" width="500" height="500">
+				<img src="/LIS104_Desafio2/Static/Img/login.svg" alt="" width="500" height="500">
 			</div>
 			<div class="col-md-6">
 				<div class="card text-white p-4">
@@ -13,7 +13,7 @@
 						<h2 class="card-title fw-bold">Iniciar Sesión</h2>
 					</div>
 					<div class="card-body">
-						<form action="/admin/usuarios/login" method="POST">
+						<form action="usuarios/login" method="POST">
 							<div class="mb-3">
 								<label for="exampleInputEmail1" class="form-label">Correo Electrónico</label>
 								<input type="email" class="form-control" name="username"

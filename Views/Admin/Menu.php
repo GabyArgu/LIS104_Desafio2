@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
-        <a class="ms-3  navbar-brand text-white" href="/">
-            <img src="/Static/Img/logo.png" alt="Logo" height="50">
+        <a class="ms-3 navbar-brand text-white" href="">
+            <img src="/LIS104_Desafio2/Static/Img/logo.png" alt="" height="50" style="filter: brightness(0) invert(1);">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>

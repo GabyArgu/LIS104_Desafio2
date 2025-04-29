@@ -12,7 +12,7 @@
 
                 <div class="col-4 d-flex align-items-center">
                     <input type="search" class="form-control" placeholder="Buscar usuario" name="search" value="<?php echo isset($search) ? $search : ''; ?>">
-                    <button class="btn btn-primary" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    <button class="btn btn-primary borderN" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
                 </div>
             </div>
         </form>

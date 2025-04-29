@@ -4,7 +4,7 @@
 	<div class="container vh-100">
 		<div class="row h-100 align-items-center">
 			<div class="col-md-6 d-flex flex-column align-items-center">
-				<img src="/Static/Img/Login.svg" alt="" width="500" height="500">
+				<img src="/LIS104_Desafio2/Static/Img/Login.svg" alt="" width="500" height="500">
 				<a href="/"><button type="button"
 						class="btn btn-outline-dark rounded-pill px-4">Regresar</button></a>
 			</div>

@@ -28,33 +28,37 @@ class AdminProductosController extends Controller
     }
 
     function agregar()
-    {
-        $this->verificarSesionAdmin(null);
-        if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-            $data = [];
-            $data['categorias'] = $this->modelCategorias->get();
-            $this->render("Admin/ProductosFormView.php", $data);
-        } else if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $this->validarDatos('agregar');
+{
+    $this->verificarSesionAdmin(null);
+    if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+        $data = [];
+        $data['categorias'] = $this->modelCategorias->get();
+        $data['codigo_auto'] = $this->generarCodigoProducto(); // Genera el código automático
+        $this->render("Admin/ProductosFormView.php", $data);
+    } else if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        $this->validarDatos('agregar');
 
-            $datos = [
-                ':codigo'       => $_POST['codigo'],
-                ':nombre'       => $_POST['nombre'],
-                ':descripcion'  => $_POST['descripcion'],
-                ':imagen'       => $_FILES['imagen']['name'] ?? '',
-                ':categoria_id' => $_POST['categoria_id'],
-                ':precio'       => $_POST['precio'] ?? 0.00,
-                ':existencias'  => $_POST['existencias'] ?? 0,
-            ];
+        // Genera el código automáticamente al agregar
+        $codigo = $this->generarCodigoProducto();
+        
+        $datos = [
+            ':codigo'       => $codigo, // Usa el código generado
+            ':nombre'       => $_POST['nombre'],
+            ':descripcion'  => $_POST['descripcion'],
+            ':imagen'       => $_FILES['imagen']['name'] ?? '',
+            ':categoria_id' => $_POST['categoria_id'],
+            ':precio'       => $_POST['precio'] ?? 0.00,
+            ':existencias'  => $_POST['existencias'] ?? 0,
+        ];
 
-            if ($this->model->insert($datos)) {
-                $this->guardarImagen();
-                $this->redirectWithMessage(true, 'El producto se ha agregado correctamente', $this->base);
-            } else {
-                $this->redirectWithMessage(false, 'Error al agregar el producto', $this->base . '/agregar');
-            }
+        if ($this->model->insert($datos)) {
+            $this->guardarImagen();
+            $this->redirectWithMessage(true, 'El producto se ha agregado correctamente', $this->base);
+        } else {
+            $this->redirectWithMessage(false, 'Error al agregar el producto', $this->base . '/agregar');
         }
     }
+}
 
     function editar($params)
     {
@@ -66,7 +70,7 @@ class AdminProductosController extends Controller
                 $data['producto'] = $this->model->getOne($params[0]);
                 $this->render("Admin/ProductosFormView.php", $data);
             } else {
-                header("Location: /$this->base");
+                header("Location: /LIS104_Desafio2/$this->base");
             }
         } else if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $this->validarDatos('editar');
@@ -112,12 +116,13 @@ class AdminProductosController extends Controller
     {
         if ($action == 'agregar') {
             $url = $this->base . '/agregar';
-
-            if ($this->model->getByCode($_POST['codigo'])) {
-                $this->redirectWithMessage(false, 'El código ya existe', $url);
-            }
+            // Eliminamos la validación de código duplicado para agregar
         } else if ($action == 'editar') {
             $url = $this->base . '/editar/' . $_POST['id'];
+            // Mantenemos la validación de formato para editar
+            if (!preg_match('/^PROD\d{5}$/', $_POST['codigo'])) {
+                $this->redirectWithMessage(false, 'El código debe tener el formato PRODXXXXX', $url);
+            }
         }
 
         //Obtener información de la imagen si existe
@@ -162,5 +167,18 @@ class AdminProductosController extends Controller
                 $this->redirectWithMessage(false, 'Error al guardar la imagen', $this->base . '/agregar');
             }
         }
+    }
+
+    private function generarCodigoProducto() {
+        // Obtener el último código de producto
+        $ultimoProducto = $this->model->getUltimoProducto();
+        
+        if ($ultimoProducto && preg_match('/PROD(\d+)/', $ultimoProducto['codigo'], $matches)) {
+            $numero = (int)$matches[1] + 1;
+        } else {
+            $numero = 1;
+        }
+        
+        return 'PROD' . str_pad($numero, 5, '0', STR_PAD_LEFT);
     }
 }
